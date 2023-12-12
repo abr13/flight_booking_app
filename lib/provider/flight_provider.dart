@@ -20,15 +20,16 @@ class FlightProvider extends ChangeNotifier {
 
     if (origin != null) {
       _filteredFlights = _filteredFlights
-          .where(
-              (flight) => flight.origin.toLowerCase() == origin.toLowerCase())
+          .where((flight) =>
+              flight.origin.toLowerCase().contains(origin.toLowerCase()))
           .toList();
     }
 
     if (destination != null) {
       _filteredFlights = _filteredFlights
-          .where((flight) =>
-              flight.destination.toLowerCase() == destination.toLowerCase())
+          .where((flight) => flight.destination
+              .toLowerCase()
+              .contains(destination.toLowerCase()))
           .toList();
     }
 
